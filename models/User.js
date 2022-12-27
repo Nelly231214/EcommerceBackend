@@ -10,7 +10,7 @@ const UserSchema=new mongoose.Schema({
     },
  img:{type:String},
 }, 
-{timestamps:true}
+{timestamps:true} // CreatedAt-i Data NOw()
 );
 
 

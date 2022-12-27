@@ -30,14 +30,14 @@ router.post("/login",async(req,res)=>{
    const OriginalPassword=hashedPassword.toString(CryptoJS.enc.Utf8)
    OriginalPassword !==req.body.password  && res.status(401).json("Wrong cresentials!")
 
-   const accesToken=jwt.sign({
+   const accessToken=jwt.sign({
       id:user._id,
       isAdmin:user.isAdmin,
    }, process.env.JWT_SEC,
    {expiresIn:"4d"} 
    )
    const { password, ...others}=user._doc;
-   return res.status(200).json({...others, accesToken})
+   return res.status(200).json({...others, accessToken})
 }catch(err){
       return res.status(500).json(err)
    }
